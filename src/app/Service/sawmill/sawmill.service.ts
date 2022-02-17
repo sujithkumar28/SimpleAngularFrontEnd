@@ -21,7 +21,7 @@ export class SawmillService {
     this.url = 'https://sawmillapplication.herokuapp.com/sawmill/';
   }
 
-
+  //Static data
 
   listStaticSawmill() {
     return allSawmills;
@@ -33,16 +33,20 @@ export class SawmillService {
     return sawmillById;
   }
 
-  listSawmill() {
-    this.httpClient.get<any>(this.url + "listAllSawmill").subscribe(response => {
-      this.sawMills = response;
-    });
-    return this.sawMills;
-  }
 
   getSawMill(id): Sawmill {
 
     const sawmillById = allSawmills.find(sawm => sawm.id == id);
     return sawmillById;
   }
+
+  //Http call
+  listSawmill() {
+    return this.httpClient.get<any>(this.url + "listAllSawmill");
+  }
+
+  getSawMillById(id) {
+    return this.httpClient.get<any>(this.url + "getSawmill/" + id);
+  }
+
 }

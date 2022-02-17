@@ -1,1 +1,19 @@
-<p>{{editSawmillModel.name}}</p>
+<form #editForm="ngForm" (ngSubmit)="update(editForm)">
+    <div ngModelGroup="editSawmill" #editSawmill="ngModelGroup">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" ngModel="{{editSawmillModel?.name}}" name="name" #name="ngModel" class="form-control"
+                id="name">
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" ngModel="{{editSawmillModel?.city}}" name="city" #name="ngModel" class="form-control"
+                id="city">
+        </div>
+        <div class="form-group">
+            <label for="country">Country</label>
+            <input type="text" ngModel="{{editSawmillModel?.country}}" name="country" #name="ngModel"
+                class="form-control" id="country">
+        </div>
+    </div>
+</form>

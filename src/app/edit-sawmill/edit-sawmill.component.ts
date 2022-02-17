@@ -1,5 +1,6 @@
+import { NgForm } from '@angular/forms';
 import { SawmillService } from './../Service/sawmill/sawmill.service';
-import { Navigation, Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Sawmill } from '../Model/Sawmill';
 
@@ -21,8 +22,13 @@ export class EditSawmillComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get("id");
-    console.log(id);
-    this.editSawmillModel = this.sawmillService.getSawMill(id);
+    this.sawmillService.getSawMillById(id).subscribe(response => {
+      this.editSawmillModel = response;
+    });
+  }
+
+  update(editSawmill: NgForm) {
+    console.log("updated");
   }
 
 }

@@ -1,19 +1,30 @@
-<nav class="navbar navbar-expand navbar-dark bg-dark" aria-label="Second navbar example">
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
     <div class="container-fluid">
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample02"
-            aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="#">Welcome</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample03"
+            aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarsExample02">
-            <ul class="navbar-nav me-auto">
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" (click)="viewSawMill()">Sawmill</a>
+                    <a class="nav-link active mousePointer" aria-current="page">Home</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>-->
+                <li class="nav-item">
+                    <a class="nav-link mousePointer">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled mousePointer">Disabled</a>
+                </li>
+                <li ngbDropdown class="nav-item dropdown">
+                    <a ngbDropdownToggle class="nav-link dropdown-toggle mousePointer" id="dropdown03"
+                        data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
+                    <ul ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown03">
+                        <li><a class="dropdown-item mousePointer" (click)="viewSawMill()">Sawmill</a></li>
+
+                    </ul>
+                </li>
             </ul>
             <form>
                 <input class="form-control" type="text" placeholder="Search" aria-label="Search">

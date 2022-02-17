@@ -15,20 +15,24 @@ export class SawmillComponent implements OnInit {
   sawmillArray: Sawmill[];
   displayedColumns: string[] = ['action', 'id', 'name', 'city', 'country', 'createdAt', 'updatedAt'];
   dataSource: MatTableDataSource<Sawmill>;
-  constructor(private sawmillService: SawmillService, private route: Router) { }
-
-  ngOnInit(): void {
+  constructor(private sawmillService: SawmillService, private route: Router) {
     this.listAllSawmill();
   }
 
-  listAllSawmill() {
-    this.sawmillArray = this.sawmillService.listSawmill();
-    this.dataSource = new MatTableDataSource(this.sawmillArray);
+  ngOnInit(): void {
+
   }
+
+  listAllSawmill() {
+    this.sawmillService.listSawmill().subscribe(response => {
+      this.sawmillArray = response;
+      this.dataSource = new MatTableDataSource(this.sawmillArray);
+    });
+  }
+
 
   editSawMill(element: Sawmill) {
     this.route.navigate(["home/sawmill/" + element.id]);
-
   }
 
 }

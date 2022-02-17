@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
   }
 
   login(formValue: NgForm) {
-
     this.route.navigate(['home']);
   }
 
